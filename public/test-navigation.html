@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareWay - Navigation Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #10b981 0%, #0891b2 100%);
+            color: white;
+        }
+        .container {
+            background: white;
+            color: #1f2937;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #10b981;
+            margin-bottom: 10px;
+        }
+        .step {
+            background: #f3f4f6;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #10b981;
+            border-radius: 8px;
+        }
+        .step h3 {
+            margin-top: 0;
+            color: #10b981;
+        }
+        button {
+            background: linear-gradient(135deg, #10b981 0%, #0891b2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+        .success {
+            background: #d1fae5;
+            border-color: #10b981;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .error {
+            background: #fee2e2;
+            border-color: #ef4444;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        code {
+            background: #1f2937;
+            color: #10b981;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ShareWay Navigation Test <span class="badge">v1.0</span></h1>
+        <p style="color: #6b7280; margin-bottom: 30px;">Test the complete signup flow</p>
+
+        <div class="success">
+            <strong>✓ Server is running!</strong><br>
+            You're ready to test the flow.
+        </div>
+
+        <div class="step">
+            <h3>Step 1: Clear Your Session</h3>
+            <p>First, clear any existing session data:</p>
+            <button onclick="clearSession()">Clear Session & Storage</button>
+            <p id="clearResult" style="margin-top: 10px;"></p>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Go to Landing Page</h3>
+            <p>Navigate to the ShareWay landing page:</p>
+            <button onclick="window.location.href='/'">Go to Landing Page</button>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: What You Should See</h3>
+            <ul>
+                <li>✓ ShareWay landing page with beautiful gradient background</li>
+                <li>✓ Green badge <code>v1.0 Latest</code> in bottom-left corner</li>
+                <li>✓ Multiple "Get Started" buttons</li>
+                <li>✓ Features, benefits, and statistics</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 4: Click "Get Started"</h3>
+            <p>When you click any "Get Started" button:</p>
+            <ul>
+                <li>✓ You'll see an alert: "Navigating to Role Selection..."</li>
+                <li>✓ Page will change to show 2 large cards</li>
+                <li>✓ Choose: <strong>Passenger</strong> (green) or <strong>Driver</strong> (blue)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 5: Complete the Signup Form</h3>
+            <p>After selecting your role, fill out the form with:</p>
+            <ul>
+                <li>📧 Email (or use Google Sign Up button)</li>
+                <li>👤 Full Name</li>
+                <li>📱 Phone Number (with country code, e.g., +1234567890)</li>
+                <li>📸 Profile Photo (optional)</li>
+                <li>🎵 Preferences (Music, Pets, Smoking)</li>
+            </ul>
+            <p><strong>Drivers also need:</strong></p>
+            <ul>
+                <li>🚗 Vehicle Type</li>
+                <li>🚙 Vehicle Model & Year</li>
+                <li>👥 Passenger Capacity</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 6: Submit & Login</h3>
+            <p>After clicking "Create My Account & Start Riding":</p>
+            <ul>
+                <li>✓ Your account is created</li>
+                <li>✓ Auto-login happens</li>
+                <li>✓ You're taken to your Dashboard</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Debug Console</h3>
+            <p>Open browser console (F12) to see debug messages:</p>
+            <ul>
+                <li><code>LandingPage component rendered</code></li>
+                <li><code>Get Started clicked - navigating to role selection</code></li>
+                <li><code>Rendering RoleSelection page</code></li>
+                <li><code>Role selected: passenger/driver</code></li>
+                <li><code>Rendering CompleteSignup page for role: ...</code></li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #e5e7eb;">
+            <h3 style="color: #10b981;">Quick Actions</h3>
+            <button onclick="clearSession()">Clear Session</button>
+            <button onclick="window.location.href='/'">Go to App</button>
+            <button onclick="window.open('/', '_blank')">Open in New Tab</button>
+        </div>
+    </div>
+
+    <script>
+        function clearSession() {
+            try {
+                sessionStorage.clear();
+                localStorage.clear();
+                document.getElementById('clearResult').innerHTML = '<span style="color: #10b981;">✓ Session cleared successfully!</span>';
+                setTimeout(() => {
+                    document.getElementById('clearResult').innerHTML = '';
+                }, 3000);
+            } catch (e) {
+                document.getElementById('clearResult').innerHTML = '<span style="color: #ef4444;">✗ Error: ' + e.message + '</span>';
+            }
+        }
+
+        // Auto-clear on page load
+        window.onload = function() {
+            console.log('%c🎯 ShareWay Test Page Loaded', 'color: #10b981; font-size: 20px; font-weight: bold;');
+            console.log('%cFollow the steps on this page to test the complete flow', 'color: #6b7280; font-size: 14px;');
+        };
+    </script>
+</body>
+</html>
+
